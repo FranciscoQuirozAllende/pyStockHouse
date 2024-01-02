@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}
+        Editar "{{ lugar['nombre_lugar'] }}"
+    {% endblock title %}</h1>
+{% endblock header %}
+
+{% block content %}
+    <form method="post">
+        <label for="nombre_lugar">Nombre Lugar</label>
+        <input name="nombre_lugar" id="nombre_lugar" value="{{ request.form['nombre_lugar'] or lugar['nombre_lugar'] }}" required>
+        <input type="submit" value="Guardar">
+    </form>
+    <hr>
+    <form action="{{ url_for('lugar.eliminar_lugar', id_lugar=lugar['id_lugar']) }}" method="post">
+        <input class="danger" type="submit" value="Eliminar" onclick="return confirm('Seguro que desea eliminar?');">
+    </form>
+{% endblock content %}

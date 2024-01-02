@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}
+        Agregar Lugar
+    {% endblock title %}</h1>
+{% endblock header %}
+
+{% block content %}
+    <form method="post">
+        <label for="nombre_lugar">Nombre Lugar</label>
+        <input name="nombre_lugar" id="nombre_lugar" value="{{ request.form['nombre_lugar'] }}" required>
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock content %}
