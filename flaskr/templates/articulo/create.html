@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}
+        Agregar Articulo
+    {% endblock title %}</h1>
+{% endblock header %}
+
+{% block content %}
+    <form method="post">
+        <label for="nombre_ariculo">Nombre Articulo</label>
+        <input name="nombre_articulo" id="nombre_articulo" value="{{ request.form['nombre_articulo'] }}" required>
+        <label for="cantidad">Cantidad de Articulos</label>
+        <input type="number" name="cantidad" id="cantidad" value="{{ request.form['cantidad'] }}" required>
+        <label for="id_lugar_articulo">Lugar del Articulo</label>
+        <select name="id_lugar_articulo" id="id_lugar_articulo">
+            {% for lugar in lugares %}
+                <option value="{{ lugar['id_lugar'] }}">{{ lugar['nombre_lugar'] }}</option>
+            {% endfor %}
+        </select>
+        <hr>
+        <input type="submit" value="Guardar">
+    </form>
+{% endblock content %}

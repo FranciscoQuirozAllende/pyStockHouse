@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Articulos{% endblock title %}</h1>
+{% endblock header %}
+
+{% block content %}
+    {% for articulo in articulos %}
+        <article class="articulo">
+            <ul>
+                {% if g.user['id_user'] == articulo['id_user'] %}
+                    <p>👉 {{ articulo['nombre_articulo'] }}: {{ articulo['cantidad'] }}</p>
+                    <a href="{{ url_for('articulo.actualizar_articulo', id_articulo=articulo['id_articulo']) }}" class="action">✏️ Editar</a>
+                    <hr>
+                {% endif %}
+            </ul>
+        </article>
+    {% endfor %}
+{% endblock content %}

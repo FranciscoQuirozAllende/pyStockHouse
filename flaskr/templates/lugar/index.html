@@ -4,6 +4,7 @@
     <h1>{% block title %}Lugares{% endblock title %}</h1>
     {% if g.user %}
         <a class="action" href="{{ url_for('lugar.crear_lugar') }}">Nuevo Lugar</a>
+        <a class="action" href="{{ url_for('articulo.crear_articulo') }}">Nuevo Articulo</a>
     {% endif %}
 {% endblock header %}
 
@@ -13,11 +14,11 @@
             <header>
                 <div>
                     {% if g.user['id_user'] == lugar['id_creador'] %}
-                        <h1><a href="">{{ lugar['nombre_lugar'] }}</a></h1>
+                        <h1><a href="{{ url_for('articulo.listar_articulos', id_lugar=lugar['id_lugar']) }}">{{ lugar['nombre_lugar'] }}</a></h1>
                     {% else %}
                         <h1>{{ lugar['nombre_lugar'] }}</h1>
                     {% endif %}
-                    <div class="about">creado por {{ lugar['username'] }} </div>
+                    <div class="about">Creador por: {{ lugar['username'] }} </div>
                 </div>
                 {% if g.user['id_user'] == lugar['id_creador'] %}
                     <a href="{{ url_for('lugar.actualizar_lugar', id_lugar=lugar['id_lugar']) }}" class="action">Editar</a>
