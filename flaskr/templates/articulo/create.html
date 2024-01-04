@@ -13,7 +13,7 @@
         <label for="cantidad">Cantidad de Articulos</label>
         <input type="number" name="cantidad" id="cantidad" value="{{ request.form['cantidad'] }}" required>
         <label for="id_lugar_articulo">Lugar del Articulo</label>
-        <select name="id_lugar_articulo" id="id_lugar_articulo">
+        <select name="id_lugar_articulo" id="id_lugar_articulo" required>
             {% for lugar in lugares %}
                 <option value="{{ lugar['id_lugar'] }}">{{ lugar['nombre_lugar'] }}</option>
             {% endfor %}
