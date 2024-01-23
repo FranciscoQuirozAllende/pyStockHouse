@@ -17,7 +17,7 @@ CREATE TABLE lugar (
 
 CREATE TABLE articulo (
     id_articulo INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre_articulo TEXT UNIQUE NOT NULL,
+    nombre_articulo TEXT NOT NULL,
     cantidad INTEGER NOT NULL,
     id_lugar_articulo INTEGER NOT NULL,
     FOREIGN KEY (id_lugar_articulo) REFERENCES lugar (id_lugar)
