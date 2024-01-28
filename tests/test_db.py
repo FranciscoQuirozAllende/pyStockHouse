@@ -22,5 +22,5 @@ def test_init_db_command(runner,monkeypatch):
 
     monkeypatch.setattr('PyStockHouse.db.init_db',fake_init_db)
     result = runner.invoke(args=['init_db'])
-    assert 'Inicializada' in result.output
+    assert 'inicializada' in result.output
     assert Recorder.called
